@@ -28,9 +28,18 @@ public class Broadcaster
         /*
         Establishes a server on the port determined by myPort
          */
+        Runnable ss = new Runnable() {
+            public void run() {
+                try {
+                    mServer.startServer();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
         try{
             mServer = new NIOServer("localhost",myPort);
-            mServer.startServer();
+            new Thread(ss).start();
 
         }catch(IOException e){
             e.printStackTrace();

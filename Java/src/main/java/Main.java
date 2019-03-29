@@ -24,13 +24,14 @@ public class Main
         if(!ServerIpAdress.equalsIgnoreCase(ROOT))
             ServerPortNumber = readPortNumber(scanner, "Enter the port number of the server to connect: ");
 
-        Broadcaster broadcaster = new Broadcaster(MyPortNumber, ServerPortNumber, ServerIpAdress);
 
+        Broadcaster broadcaster = new Broadcaster(MyPortNumber, ServerPortNumber, ServerIpAdress);
         if(ServerIpAdress.equalsIgnoreCase(ROOT))
         {
-            System.out.println("check");
+
             new Data().run();
         }
+
     }
 
     /**
