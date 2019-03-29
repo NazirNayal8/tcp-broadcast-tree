@@ -15,13 +15,13 @@ public class Data extends Thread
     /**
      * The local view of this process of the broadcasted
      */
-    private static String data;
+    private static String data ;
 
     public static String QUIT = "QUIT";
 
     public static String getData()
     {
-        return data;
+        return data ;
     }
 
     /**

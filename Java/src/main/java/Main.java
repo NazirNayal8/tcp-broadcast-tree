@@ -28,6 +28,7 @@ public class Main
 
         if(ServerIpAdress.equalsIgnoreCase(ROOT))
         {
+            System.out.println("check");
             new Data().run();
         }
     }

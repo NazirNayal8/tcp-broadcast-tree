@@ -3,6 +3,7 @@ import java.net.Inet4Address;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
 /**
  * This class models an instance of the server part of the broadcaster process, that listens to the line for
  * reception of a child node on the broadcast tree via a server
@@ -31,7 +32,7 @@ public class Server extends Thread
         try
         {
             mServerSocket = new ServerSocket(port);
-            System.out.println("Oppened up a server socket on " + Inet4Address.getLocalHost());
+            System.out.println("Opened up a server socket on " + Inet4Address.getLocalHost());
         }
         catch (IOException e)
         {

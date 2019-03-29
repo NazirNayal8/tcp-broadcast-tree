@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * This class models a broadcaster process, which consists of a server and client part. Client part connects to the specified
  * parent node in the broadcast tree to receive the update state of the root node, and upon receiving an update, the server part
@@ -8,12 +10,12 @@ public class Broadcaster
     /**
      * The server side of the broadcaster process
      */
-    Server mServer;
+    NIOServer mServer;
 
     /**
      * The client side of the broadcaster process
      */
-    Client mClient;
+   NIOClient mClient;
 
     /**
      *
@@ -26,8 +28,13 @@ public class Broadcaster
         /*
         Establishes a server on the port determined by myPort
          */
-        mServer = new Server(myPort);
-        mServer.start();
+        try{
+            mServer = new NIOServer("localhost",myPort);
+            mServer.startServer();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
 
         /*
@@ -36,7 +43,13 @@ public class Broadcaster
          */
         if ((!parentIP.equalsIgnoreCase(Main.ROOT) && parentPort != -1))
         {
-            mClient = new Client(parentIP, parentPort);
+            try{
+                mClient = new NIOClient(parentIP, parentPort);
+            }catch(IOException e){
+                e.printStackTrace();
+            }catch(InterruptedException k){
+                k.printStackTrace();
+            }
         }
 
 

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.*;
 
 /**
  * This class models the TCP-Client part of the broadcaster, where the client establishes a TCP socket connection with
